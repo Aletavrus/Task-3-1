@@ -1,0 +1,15 @@
+D:\Git Projects\Task 3-1\Task 3-1\bin\Debug\net8.0\Task 3-1.exe
+D:\Git Projects\Task 3-1\Task 3-1\bin\Debug\net8.0\Task 3-1.deps.json
+D:\Git Projects\Task 3-1\Task 3-1\bin\Debug\net8.0\Task 3-1.runtimeconfig.json
+D:\Git Projects\Task 3-1\Task 3-1\bin\Debug\net8.0\Task 3-1.dll
+D:\Git Projects\Task 3-1\Task 3-1\bin\Debug\net8.0\Task 3-1.pdb
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.AssemblyInfoInputs.cache
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.AssemblyInfo.cs
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.csproj.CoreCompileInputs.cache
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.sourcelink.json
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.dll
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\refint\Task 3-1.dll
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.pdb
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\Task 3-1.genruntimeconfig.cache
+D:\Git Projects\Task 3-1\Task 3-1\obj\Debug\net8.0\ref\Task 3-1.dll
