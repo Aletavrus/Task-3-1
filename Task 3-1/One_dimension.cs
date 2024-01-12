@@ -1,48 +1,37 @@
 ﻿
 class One_Dimension
 {
-    public bool user_values;
-    public One_Dimension()
+    private bool user_values = false;
+    private int[] array;
+    private int size;
+    public One_Dimension(bool creation_type, int size)
     {
-        Console.WriteLine("Do you want to have randomly generated values in array?");
-        string get_creation_type = Console.ReadLine();
-        user_values = false;
-        if (get_creation_type == "no")
+        this.user_values = creation_type;
+        this.size = size;
+        array = new int[size];
+        if (!user_values)
         {
-            user_values = true;
+            array = Random_array();
+        }
+        else
+        {
+            array = Input_array();
         }
     }
 
-    public static void Print(int[] array)
+    public void Print()
     {
-        for (int h = 0; h < array.Length; h++)
+        for (int h = 0; h < size; h++)
         {
             Console.Write($"{array[h]} ");
         }
         Console.WriteLine();
     }
 
-    public static int[] Create_Array(bool user_values)
-    {
-        Console.WriteLine("Enter a size of an array");
-        int size = int.Parse(Console.ReadLine());
-        int[] array = new int[size];
-        if (!user_values)
-        {
-            array = Random_Array(array);
-        }
-        else
-        {
-            array = Input_Array(array);
-        }
-        return array;
-    }
-
-
-    public static int[] Random_Array(int[] array)
+    public int[] Random_array()
     {
         Random random = new Random();
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < size; i++)
         {
             array[i] = random.Next(0, 100);
         }
@@ -50,12 +39,12 @@ class One_Dimension
     }
 
 
-    public static int[] Input_Array(int[] array)
+    public int[] Input_array()
     {
         Console.WriteLine("Enter a string with all values of an array separated by spaces");
         string input = Console.ReadLine();
         string[] input_lst = input.Split();
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < size; i++)
         {
             array[i] = int.Parse(input_lst[i]);
         }
@@ -63,64 +52,64 @@ class One_Dimension
     }
 
 
-    public static decimal Average(int[] array)
+    public decimal Average()
     {
         int summ = 0;
         foreach (int number in array)
         {
             summ += number;
         }
-        decimal avg = summ / array.Length;
+        decimal avg = summ / size;
         return avg;
     }
 
-    public static int[] Check(int[] arr)
+    public int[] Check()
     {
-        int[] arr2 = arr;
-        for (int x = 0; x < arr.Length; x++)
+        int[] array2 = array;
+        for (int x = 0; x < size; x++)
         {
-            if (Math.Abs(arr[x]) > 100)
+            if (Math.Abs(array[x]) > 100)
             {
-                arr2 = new int[x];
+                array2 = new int[x];
                 for (int y = 0; y < x; y++)
                 {
-                    arr2[y] = arr[y];
+                    array2[y] = array[y];
                 }
             }
         }
-        return arr2;
+        return array2;
     }
 
 
-    public static int[] Unique(int[] arr)
+    public int[] Unique()
     {
-        int newArrLength = arr.Length;
-        for (int i = 0; i < arr.Length; i++)
+        int newarrayLength = size;
+        for (int i = 0; i < size; i++)
         {
-            for (int j = i; j < arr.Length; j++)
+            for (int j = i; j < size; j++)
             {
 
-                if (arr[i] == arr[j] && i != j)
+                if (array[i] == array[j] && i != j)
                 {
-                    newArrLength--;
+                    newarrayLength--;
                     break;
                 }
             }
         }
         int counter = 0;
-        int[] newArray = new int[newArrLength];
-        for (int a = 0; a < arr.Length; a++)
+        int[] newarray = new int[newarrayLength];
+        for (int a = 0; a < size; a++)
         {
-            if (!Contain(newArray, arr[a]))
+            if (!Contain(newarray, array[a]))
             {
-                newArray[counter] = arr[a];
+                newarray[counter] = array[a];
                 counter++;
             }
         }
-        return newArray;
+        return newarray;
     }
 
-    public static bool Contain(int[] k, int symb)
+    public bool Contain(int[] k, int symb)
     {
         for (int g = 0; g < k.Length; g++)
         {
