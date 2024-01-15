@@ -5,6 +5,8 @@
     private int size;
     public Many_Dimension()
     {
+        this.user_values = creation_type;
+        this.size = size;
         array = new int[size][];
         if (!user_values)
         {
@@ -13,28 +15,6 @@
         else
         {
             array = Input_Array();
-        }
-    }
-    public bool Values_Type
-    {
-        get
-        {
-            return user_values;
-        }
-        set
-        {
-            user_values = value;
-        }
-    }
-    public int Size
-    {
-        get
-        {
-            return size;
-        }
-        set 
-        {
-            size = value; 
         }
     }
 
