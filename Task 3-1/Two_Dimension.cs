@@ -9,7 +9,7 @@ class Two_Dimension
     private int column;
     public Two_Dimension(bool creation_type, int line, int column)
     {
-        this.user_values = creation_type;
+        user_values = creation_type;
         this.line = line;
         this.column = column;
         if (!user_values)
@@ -21,6 +21,7 @@ class Two_Dimension
             array = Input_Array();
         }
     }
+
     public int[,] Input_Array()
     {
         for (int i = 0; i < line; i++)
@@ -49,7 +50,7 @@ class Two_Dimension
         return array;
     }
 
-    public decimal Average(int[,] array)
+    public decimal Average()
     {
         int summ = 0;
         foreach (int number in array)
@@ -60,7 +61,7 @@ class Two_Dimension
         return avg;
     }
 
-    public void Print(int[,] array)
+    public void Print()
     {
         for (int i = 0; i<line; i++)
         {
@@ -73,7 +74,7 @@ class Two_Dimension
         Console.WriteLine();
     }
 
-    public void Print_Even_Lines(int[,] array) //элементы четных строк в обратном порядке
+    public void Print_Even_Lines() //элементы четных строк в обратном порядке
     {
         for (int i = 0; i < line; i++)
         {
@@ -177,7 +178,6 @@ class Two_Dimension
         int definitor = (array[0, 0] * array[1, 1]) - (array[1, 0] * array[0, 1]);
         return definitor;
     }
-
     public static int Two_Mansion(int[,] old_array, int[,] new_array, int n, int k) /*Перемножает элемент (old_array[0, n]) на его алгебраическое дополнение (definitor)
                                                                                       c учетом коэффициента порядка (k)*/
     {

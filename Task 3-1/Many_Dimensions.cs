@@ -2,11 +2,9 @@
 {
     private bool user_values = false;
     private int[][] array;
-    private int size;
-    public Many_Dimension()
+    public Many_Dimension(bool creation_type, int size)
     {
-        this.user_values = creation_type;
-        this.size = size;
+        user_values = creation_type;
         array = new int[size][];
         if (!user_values)
         {
@@ -42,15 +40,27 @@
         Random random = new Random();
         for (int i = 0; i < array.Length; i++)
         {
-            Console.WriteLine("Enter size of an inner array");
-            int size = int.Parse(Console.ReadLine());
-            array[i] = new int[size];
+            int size_inner = random.Next(1, 5);
+            array[i] = new int[size_inner];
             for (int j = 0; j < array[i].Length; j++)
             {
                 array[i][j] = random.Next(0, 100);
             }
         }
         return array;
+    }
+
+    public void Print()
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            for (int j=0; j < array[i].Length; j++)
+            {
+                Console.Write($"{array[i][j]} ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
     }
 
     public void Average_of_Single()

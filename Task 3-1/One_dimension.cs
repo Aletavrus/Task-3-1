@@ -19,6 +19,18 @@ class One_Dimension
         }
     }
 
+    public int[] Get_Array //это если заполнять массив отдельно, но я пока не использовал
+    {
+        get
+        {
+            return array;
+        }
+        set
+        {
+            array = value;
+        }
+    }
+
     public void Print()
     {
         for (int h = 0; h < size; h++)
@@ -63,7 +75,7 @@ class One_Dimension
         return avg;
     }
 
-    public int[] Check()
+    public int[] Delete_Over()
     {
         int[] array2 = array;
         for (int x = 0; x < size; x++)
