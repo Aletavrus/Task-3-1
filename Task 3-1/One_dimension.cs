@@ -11,15 +11,15 @@ class One_Dimension
         array = new int[size];
         if (!user_values)
         {
-            array = Random_array();
+            Random_array();
         }
         else
         {
-            array = Input_array();
+            Input_array();
         }
     }
 
-    public int[] Get_Array //это если заполнять массив отдельно, но я пока не использовал
+    public int[] Get_Array
     {
         get
         {
@@ -28,6 +28,30 @@ class One_Dimension
         set
         {
             array = value;
+        }
+    }
+
+    public int Get_Size
+    {
+        get
+        {
+            return size;
+        }
+        set
+        {
+            size = value;
+        }
+    }
+
+    public bool Get_User_Values
+    {
+        get
+        {
+            return user_values; 
+        }
+        set
+        {
+            user_values = value;
         }
     }
 
@@ -40,18 +64,17 @@ class One_Dimension
         Console.WriteLine();
     }
 
-    public int[] Random_array()
+    public void Random_array()
     {
         Random random = new Random();
         for (int i = 0; i < size; i++)
         {
             array[i] = random.Next(0, 100);
         }
-        return array;
     }
 
 
-    public int[] Input_array()
+    public void Input_array()
     {
         Console.WriteLine("Enter a string with all values of an array separated by spaces");
         string input = Console.ReadLine();
@@ -60,7 +83,6 @@ class One_Dimension
         {
             array[i] = int.Parse(input_lst[i]);
         }
-        return array;
     }
 
 
