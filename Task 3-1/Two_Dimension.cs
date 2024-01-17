@@ -3,26 +3,34 @@ using System.Data;
 
 class Two_Dimension
 {
-    private bool user_values = false;
     private int[,] array;
-    private int line;
-    private int column;
-    public Two_Dimension(bool creation_type, int line, int column)
+    public Two_Dimension(int line, int column, bool user_values = false)
     {
-        user_values = creation_type;
-        this.line = line;
-        this.column = column;
+        int[,] array = new int[line, column];
         if (!user_values)
         {
-            array = Random_Array();
+            Random_Array();
         }
         else
         {
-            array = Input_Array();
+            Input_Array();
         }
     }
 
-    public int[,] Input_Array()
+    public void Recreate(int line, int column, bool user_values = false)
+    {
+        int[,] array = new int[line, column];
+        if (!user_values)
+        {
+            Random_Array();
+        }
+        else
+        {
+            Input_Array();
+        }     
+    }
+
+    public void Input_Array()
     {
         for (int i = 0; i < line; i++)
         {
@@ -34,10 +42,9 @@ class Two_Dimension
                 array[i, j] = int.Parse(input_lst[j]);
             }
         }
-        return array;
     }
 
-    public int[,] Random_Array()
+    public void Random_Array()
     {
         Random random = new Random();
         for (int i = 0; i < line; i++)
@@ -47,7 +54,6 @@ class Two_Dimension
                 array[i, j] = random.Next(0, 100);
             }
         }
-        return array;
     }
 
     public decimal Average()

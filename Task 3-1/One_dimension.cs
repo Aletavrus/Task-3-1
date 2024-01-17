@@ -1,13 +1,9 @@
 ﻿
 class One_Dimension
 {
-    private bool user_values = false;
     private int[] array;
-    private int size;
-    public One_Dimension(bool creation_type, int size)
+    public One_Dimension(int size, bool user_values = false)
     {
-        this.user_values = creation_type;
-        this.size = size;
         array = new int[size];
         if (!user_values)
         {
@@ -19,39 +15,15 @@ class One_Dimension
         }
     }
 
-    public int[] Get_Array
+    public void Recreate(int size, bool user_values = false)
     {
-        get
+        if (!user_values)
         {
-            return array;
+            Random_array();
         }
-        set
+        else
         {
-            array = value;
-        }
-    }
-
-    public int Get_Size
-    {
-        get
-        {
-            return size;
-        }
-        set
-        {
-            size = value;
-        }
-    }
-
-    public bool Get_User_Values
-    {
-        get
-        {
-            return user_values; 
-        }
-        set
-        {
-            user_values = value;
+            Input_array();
         }
     }
 
@@ -97,7 +69,7 @@ class One_Dimension
         return avg;
     }
 
-    public int[] Delete_Over()
+    public void Delete_Over()
     {
         int[] array2 = array;
         for (int x = 0; x < size; x++)
@@ -111,11 +83,11 @@ class One_Dimension
                 }
             }
         }
-        return array2;
+        array = array2;
     }
 
 
-    public int[] Unique()
+    public void Unique()
     {
         int newarrayLength = size;
         for (int i = 0; i < size; i++)
@@ -140,7 +112,7 @@ class One_Dimension
                 counter++;
             }
         }
-        return newarray;
+        array = newarray;
     }
 
     public bool Contain(int[] k, int symb)

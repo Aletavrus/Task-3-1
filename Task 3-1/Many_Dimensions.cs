@@ -1,23 +1,32 @@
 ﻿class Many_Dimension
 {
-    private bool user_values = false;
     private int[][] array;
-    public Many_Dimension(bool creation_type, int size)
+    public Many_Dimension(int size, bool user_values = false)
     {
-        user_values = creation_type;
         array = new int[size][];
         if (!user_values)
         {
-            array = Random_Array();
+            Random_Array();
         }
         else
         {
-            array = Input_Array();
+            Input_Array();
         }
     }
 
+    public void Recreate(int size, bool user_values = false)
+    {
+        if (!user_values)
+        {
+            Random_Array();
+        }
+        else
+        {
+            Input_Array();
+        }
+    }
 
-    public int[][] Input_Array()
+    public void Input_Array()
     {
         for (int i = 0; i < array.Length; i++)
         {
@@ -32,10 +41,9 @@
                 array[i][j] = int.Parse(input_lst[j]);
             }
         }
-        return array;
     }
 
-    public int[][] Random_Array()
+    public void Random_Array()
     {
         Random random = new Random();
         for (int i = 0; i < array.Length; i++)
@@ -47,7 +55,6 @@
                 array[i][j] = random.Next(0, 100);
             }
         }
-        return array;
     }
 
     public void Print()
@@ -77,7 +84,7 @@
         }
     }
 
-    public decimal Average_of_All()
+    public void Average_of_All()
     {
         int summ = 0;
         int total_length = 0;
@@ -90,10 +97,10 @@
             }
         }
         decimal avg = summ / total_length;
-        return avg;
+        Console.WriteLine($"Average of all elements in array = {avg}");
     }
 
-    public int[][] Even_Num_Change()
+    public void Even_Num_Change()
     {
         for (int i = 0; i < array.Length; i++)
         {
@@ -105,7 +112,6 @@
                 }
             }
         }
-        return array;
     }
 
 }
