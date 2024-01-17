@@ -1,6 +1,6 @@
 ﻿class Many_Dimension
 {
-    private Random random;
+    private Random random = new Random();
     private int[][] array;
     public Many_Dimension(int size, bool user_values = false)
     {
@@ -49,11 +49,12 @@
     {
         for (int i = 0; i < array.Length; i++)
         {
-            int size_inner = random.Next(1, 5);
-            array[i] = new int[size_inner];
+            Console.WriteLine("Enter size of an inner array");
+            int size = int.Parse(Console.ReadLine());
+            array[i] = new int[size];
             for (int j = 0; j < array[i].Length; j++)
             {
-                array[i][j] = random.Next(0, 100);
+                array[i][j] = random.Next(1, 100);
             }
         }
     }
@@ -124,7 +125,7 @@
             {
                 if (array[i][y] % 2 == 0)
                 {
-                    new_array[i][y] = i * y;
+                    newarray[i][y] = i * y;
                 }
             }
         }

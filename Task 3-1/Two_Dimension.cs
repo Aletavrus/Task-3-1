@@ -3,10 +3,11 @@ using System.Data;
 
 class Two_Dimension
 {
+    private Random random = new Random();
     private int[,] array;
     public Two_Dimension(int line, int column, bool user_values = false)
     {
-        int[,] array = new int[line, column];
+        array = new int[line, column];
         if (!user_values)
         {
             Random_Array();
@@ -19,7 +20,7 @@ class Two_Dimension
 
     public void Recreate(int line, int column, bool user_values = false)
     {
-        int[,] array = new int[line, column];
+        array = new int[line, column];
         if (!user_values)
         {
             Random_Array();
@@ -32,12 +33,12 @@ class Two_Dimension
 
     public void Input_Array()
     {
-        for (int i = 0; i < line; i++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            Console.WriteLine("Enter values of an array in 1 string with spaces between elements");
+            Console.WriteLine("Enter values of 1 line in 1 string with spaces between elements");
             string input = Console.ReadLine();
             string[] input_lst = input.Split();
-            for (int j = 0; j < column; j++)
+            for (int j = 0; j < array.GetLength(1); j++)
             {
                 array[i, j] = int.Parse(input_lst[j]);
             }
@@ -46,17 +47,16 @@ class Two_Dimension
 
     public void Random_Array()
     {
-        Random random = new Random();
-        for (int i = 0; i < line; i++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            for (int j = 0; j < column; j++)
+            for (int j = 0; j < array.GetLength(1); j++)
             {
                 array[i, j] = random.Next(0, 100);
             }
         }
     }
 
-    public decimal Average()
+    public void Average()
     {
         int summ = 0;
         foreach (int number in array)
@@ -64,14 +64,14 @@ class Two_Dimension
             summ += number;
         }
         decimal avg = summ / array.Length;
-        return avg;
+        Console.WriteLine($"Average = {avg}");
     }
 
     public void Print()
     {
-        for (int i = 0; i<line; i++)
+        for (int i = 0; i<array.GetLength(0); i++)
         {
-            for (int j = 0; j<column; j++)
+            for (int j = 0; j<array.GetLength(1); j++)
             {
                 Console.Write($"{array[i, j]} ");
             }
@@ -82,11 +82,11 @@ class Two_Dimension
 
     public void Print_Even_Lines() //элементы четных строк в обратном порядке
     {
-        for (int i = 0; i < line; i++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
             if (i % 2 == 0)
             {
-                for (int j = column - 1; j > 0; j--)
+                for (int j = array.GetLength(1) - 1; j >= 0; j--)
                 {
                     Console.Write($"{array[i, j]} ");
                 }
@@ -94,7 +94,7 @@ class Two_Dimension
             }
             else
             {
-                for (int j = 0; j < column; j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
                     Console.Write($"{array[i, j]} ");
                 }
@@ -103,11 +103,19 @@ class Two_Dimension
         }
     }
 
+    public int[,] GetArray
+    {
+        get
+        {
+            return array;
+        }
+    }
+
     public int Split_array(int[,] array) //здесь и дальше алгоритм поиска определителя матрицы
     {
         int total = 0;
         int counter = 0;
-        int size_of_array = line;
+        int size_of_array = array.GetLength(0);
         int new_size = size_of_array - 1;
         if (size_of_array == 2)
         {
@@ -179,13 +187,12 @@ class Two_Dimension
         }
         return total;
     }
-    public static int Find_Definitor(int[,] array) //Находит определитель двоичной матрицы
+    private static int Find_Definitor(int[,] array) //Находит определитель двоичной матрицы
     {
         int definitor = (array[0, 0] * array[1, 1]) - (array[1, 0] * array[0, 1]);
         return definitor;
     }
-    public static int Two_Mansion(int[,] old_array, int[,] new_array, int n, int k) /*Перемножает элемент (old_array[0, n]) на его алгебраическое дополнение (definitor)
-                                                                                      c учетом коэффициента порядка (k)*/
+    private static int Two_Mansion(int[,] old_array, int[,] new_array, int n, int k) /*Перемножает элемент (old_array[0, n]) на его алгебраическое дополнение (definitor)                                                                                c учетом коэффициента порядка (k)*/
     {
         int definitor = Find_Definitor(new_array);
         definitor = old_array[0, n] * k * definitor;

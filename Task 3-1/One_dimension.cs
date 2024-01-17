@@ -1,7 +1,7 @@
 ﻿
 class One_Dimension
 {
-    private Random random;
+    private Random random = new Random();
     private int[] array;
     public One_Dimension(int size, bool user_values = false)
     {
@@ -68,7 +68,7 @@ class One_Dimension
     }
 
 
-    public decimal Average()
+    public void Average()
     {
         int summ = 0;
         foreach (int number in array)
@@ -76,22 +76,27 @@ class One_Dimension
             summ += number;
         }
         decimal avg = summ / array.Length;
-        return avg;
+        Console.WriteLine($"Average = {avg}");
     }
 
     public void Delete_Over()
     {
-        int[] array2 = new int[array.Length];
-        Array.Copy(array, array2, array.Length);
+        int newArrayLength = array.Length;
         for (int x = 0; x < array.Length; x++)
         {
             if (Math.Abs(array[x]) > 100)
             {
-                array2 = new int[x];
-                for (int y = 0; y < x; y++)
-                {
-                    array2[y] = array[y];
-                }
+                newArrayLength--;
+            }
+        }
+        int[] array2 = new int[newArrayLength];
+        int counter = 0;
+        for (int x = 0 ; x < array.Length ; x++)
+        {
+            if (!(Math.Abs(array[x]) > 100))
+            {
+                array2[counter] = array[x];
+                counter++;
             }
         }
         Print(array2);
