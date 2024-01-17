@@ -1,6 +1,7 @@
 ﻿
 class One_Dimension
 {
+    private Random random;
     private int[] array;
     public One_Dimension(int size, bool user_values = false)
     {
@@ -17,6 +18,7 @@ class One_Dimension
 
     public void Recreate(int size, bool user_values = false)
     {
+        array = new int[size];
         if (!user_values)
         {
             Random_array();
@@ -29,17 +31,25 @@ class One_Dimension
 
     public void Print()
     {
-        for (int h = 0; h < size; h++)
+        for (int h = 0; h < array.Length; h++)
         {
             Console.Write($"{array[h]} ");
         }
         Console.WriteLine();
     }
 
+    private static void Print(int[] ChangedArray)
+    {
+        for (int h = 0; h < ChangedArray.Length; h++)
+        {
+            Console.Write($"{ChangedArray[h]} ");
+        }
+        Console.WriteLine();
+    }
+
     public void Random_array()
     {
-        Random random = new Random();
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < array.Length; i++)
         {
             array[i] = random.Next(0, 100);
         }
@@ -51,7 +61,7 @@ class One_Dimension
         Console.WriteLine("Enter a string with all values of an array separated by spaces");
         string input = Console.ReadLine();
         string[] input_lst = input.Split();
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < array.Length; i++)
         {
             array[i] = int.Parse(input_lst[i]);
         }
@@ -65,14 +75,15 @@ class One_Dimension
         {
             summ += number;
         }
-        decimal avg = summ / size;
+        decimal avg = summ / array.Length;
         return avg;
     }
 
     public void Delete_Over()
     {
-        int[] array2 = array;
-        for (int x = 0; x < size; x++)
+        int[] array2 = new int[array.Length];
+        Array.Copy(array, array2, array.Length);
+        for (int x = 0; x < array.Length; x++)
         {
             if (Math.Abs(array[x]) > 100)
             {
@@ -83,16 +94,16 @@ class One_Dimension
                 }
             }
         }
-        array = array2;
+        Print(array2);
     }
 
 
     public void Unique()
     {
-        int newarrayLength = size;
-        for (int i = 0; i < size; i++)
+        int newarrayLength = array.Length;
+        for (int i = 0; i < array.Length; i++)
         {
-            for (int j = i; j < size; j++)
+            for (int j = i; j < array.Length; j++)
             {
 
                 if (array[i] == array[j] && i != j)
@@ -104,7 +115,7 @@ class One_Dimension
         }
         int counter = 0;
         int[] newarray = new int[newarrayLength];
-        for (int a = 0; a < size; a++)
+        for (int a = 0; a < array.Length; a++)
         {
             if (!Contain(newarray, array[a]))
             {
@@ -112,7 +123,7 @@ class One_Dimension
                 counter++;
             }
         }
-        array = newarray;
+        Print(newarray);
     }
 
     public bool Contain(int[] k, int symb)

@@ -1,5 +1,6 @@
 ﻿class Many_Dimension
 {
+    private Random random;
     private int[][] array;
     public Many_Dimension(int size, bool user_values = false)
     {
@@ -16,6 +17,7 @@
 
     public void Recreate(int size, bool user_values = false)
     {
+        array = new int[size][];
         if (!user_values)
         {
             Random_Array();
@@ -45,7 +47,6 @@
 
     public void Random_Array()
     {
-        Random random = new Random();
         for (int i = 0; i < array.Length; i++)
         {
             int size_inner = random.Next(1, 5);
@@ -64,6 +65,19 @@
             for (int j=0; j < array[i].Length; j++)
             {
                 Console.Write($"{array[i][j]} ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+    }
+
+    private static void Print(int[][] ChangedArray)
+    {
+        for (int i = 0; i < ChangedArray.Length; i++)
+        {
+            for (int j=0; j < ChangedArray[i].Length; j++)
+            {
+                Console.Write($"{ChangedArray[i][j]} ");
             }
             Console.WriteLine();
         }
@@ -102,16 +116,19 @@
 
     public void Even_Num_Change()
     {
+        int[][] newarray = new int[array.Length][];
+        Array.Copy(array, newarray, array.Length);
         for (int i = 0; i < array.Length; i++)
         {
             for (int y = 0; y < array[i].Length; y++)
             {
                 if (array[i][y] % 2 == 0)
                 {
-                    array[i][y] = i * y;
+                    new_array[i][y] = i * y;
                 }
             }
         }
+        Print(newarray);
     }
 
 }
