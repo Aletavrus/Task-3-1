@@ -20,9 +20,7 @@
             One_Dimension one_Dimension = new One_Dimension(user_values, size);
             Console.WriteLine($"Average: {one_Dimension.Average()}");
             one_Dimension.Delete_Over();
-            one_Dimension.Print();
             one_Dimension.Unique();
-            one_Dimension.Print();
         }
         if (type_array == "two dimension")
         {
