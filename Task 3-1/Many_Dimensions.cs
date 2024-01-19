@@ -2,10 +2,10 @@
 {
     private Random _random = new Random();
     private int[][] _array;
-    public ManyDimension(int size, bool user_values = false)
+    public ManyDimension(int size, bool userValues = false)
     {
         _array = new int[size][];
-        if (!user_values)
+        if (!userValues)
         {
             Random_Array();
         }
@@ -15,20 +15,21 @@
         }
     }
 
-    public void Recreate(int size, bool user_values = false)
+    public void Recreate(int size, bool userValues = false)
     {
         _array = new int[size][];
-        if (!user_values)
+        if (!userValues)
         {
-            Random_Array();
+            _randomArray();
+
         }
         else
         {
-            Input_Array();
+            _inputArray();
         }
     }
 
-    public void Input_Array()
+    private void _inputArray()
     {
         for (int i = 0; i < _array.Length; i++)
         {
@@ -45,7 +46,7 @@
         }
     }
 
-    public void Random_Array()
+    private void _randomArray()
     {
         for (int i = 0; i < _array.Length; i++)
         {
@@ -77,7 +78,7 @@
         Console.WriteLine();
     }
 
-    public void Average_of_Single()
+    public void AverageOfSingle()
     {
         for (int i = 0; i < _array.Length; i++)
         {
@@ -91,7 +92,7 @@
         }
     }
 
-    public void Average_of_All()
+    public void AverageOfAll()
     {
         int summ = 0;
         int totalLength = 0;
@@ -107,7 +108,7 @@
         Console.WriteLine($"Average of all elements in array = {avg}");
     }
 
-    public void Even_Num_Change()
+    public void EvenNumChange()
     {
         int[][] newArray = new int[_array.Length][];
         Array.Copy(_array, newArray, _array.Length);

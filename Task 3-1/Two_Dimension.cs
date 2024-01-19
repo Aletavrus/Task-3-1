@@ -5,33 +5,33 @@ class TwoDimension
 {
     private Random random = new Random();
     private int[,] _array;
-    public TwoDimension(int line, int column, bool user_values = false)
+    public TwoDimension(int line, int column, bool userValues = false)
     {
         _array = new int[line, column];
-        if (!user_values)
+        if (!userValues)
         {
-            Random_Array();
+            _randomArray();
         }
         else
         {
-            Input_Array();
+            _inputArray();
         }
     }
 
-    public void Recreate(int line, int column, bool user_values = false)
+    public void Recreate(int line, int column, bool userValues = false)
     {
         _array = new int[line, column];
-        if (!user_values)
+        if (!userValues)
         {
-            Random_Array();
+            _randomArray();
         }
         else
         {
-            Input_Array();
+            _inputArray();
         }     
     }
 
-    public void Input_Array()
+    private void _inputArray()
     {
         for (int i = 0; i < _array.GetLength(0); i++)
         {
@@ -45,7 +45,7 @@ class TwoDimension
         }
     }
 
-    public void Random_Array()
+    private void _randomArray()
     {
         for (int i = 0; i < _array.GetLength(0); i++)
         {
