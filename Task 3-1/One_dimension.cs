@@ -5,27 +5,18 @@ class OneDimension
     private int[] _array;
     public OneDimension(int size, bool userValues = false)
     {
-        _array = new int[size];
-        if (!userValues)
-        {
-            _randomArray();
-        }
-        else
-        {
-            _inputArray();
-        }
+        Recreate(size, userValues);
     }
 
     public void Recreate(int size, bool userValues = false)
     {
-        _array = new int[size];
-        if (!userValues)
+        if (userValues)
         {
-            _randomArray();
+            _createArray(size, true);
         }
         else
         {
-            _inputArray();
+            _createArray(size);
         }
     }
 
@@ -41,6 +32,19 @@ class OneDimension
             Console.Write($"{array[h]} ");
         }
         Console.WriteLine();
+    }
+
+    private void _createArray(int size, bool userValues = false)
+    {
+        _array = new int[size];
+        if (!userValues)
+        {
+            _randomArray();
+        }
+        else
+        {
+            _inputArray();
+        }
     }
 
     private void _randomArray()

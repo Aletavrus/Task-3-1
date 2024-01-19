@@ -4,24 +4,27 @@
     private int[][] _array;
     public ManyDimension(int size, bool userValues = false)
     {
-        _array = new int[size][];
-        if (!userValues)
-        {
-            Random_Array();
-        }
-        else
-        {
-            Input_Array();
-        }
+        Recreate(size, userValues);
     }
 
     public void Recreate(int size, bool userValues = false)
+    {
+        if (userValues)
+        {
+            _createArray(size, true);
+        }
+        else
+        {
+            _createArray(size);
+        }
+    }
+
+    private void _createArray(int size, bool userValues = false)
     {
         _array = new int[size][];
         if (!userValues)
         {
             _randomArray();
-
         }
         else
         {

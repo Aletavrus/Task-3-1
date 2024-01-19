@@ -41,7 +41,7 @@ class HelloWorld
             Console.WriteLine("Enter amount of arrays in a big array");
             int size = int.Parse(Console.ReadLine());
             ManyDimension manyDimension = new ManyDimension(size, userValues);
-            manyDimension.Even_Num_Change();
+            //manyDimension.EvenNumChange();
             //manyDimension.Print();
             //manyDimension.Average_of_Single();
             //manyDimension.Average_of_All();

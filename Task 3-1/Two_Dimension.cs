@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 
 class TwoDimension
 {
@@ -7,18 +8,22 @@ class TwoDimension
     private int[,] _array;
     public TwoDimension(int line, int column, bool userValues = false)
     {
-        _array = new int[line, column];
-        if (!userValues)
-        {
-            _randomArray();
-        }
-        else
-        {
-            _inputArray();
-        }
+        Recreate(line, column, userValues);
     }
 
     public void Recreate(int line, int column, bool userValues = false)
+    {
+        if (userValues)
+        {
+            _createArray(line, column, true);
+        }
+        else
+        {
+            _createArray(line, column);
+        }
+    }
+
+    private void _createArray(int line, int column, bool userValues = false)
     {
         _array = new int[line, column];
         if (!userValues)
@@ -28,7 +33,7 @@ class TwoDimension
         else
         {
             _inputArray();
-        }     
+        }
     }
 
     private void _inputArray()
