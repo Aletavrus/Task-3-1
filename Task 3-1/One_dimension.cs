@@ -1,35 +1,40 @@
 ﻿
-class One_Dimension
+class OneDimension
 {
-    private Random random = new Random();
-    private int[] array;
-    public One_Dimension(int size, bool user_values = false)
+    private Random _random = new Random();
+    private int[] _array;
+    public OneDimension(int size, bool userValues = false)
     {
-        array = new int[size];
-        if (!user_values)
+        _array = new int[size];
+        if (!userValues)
         {
-            Random_array();
+            RandomArray();
         }
         else
         {
-            Input_array();
+            InputArray();
         }
     }
 
-    public void Recreate(int size, bool user_values = false)
+    public void Recreate(int size, bool userValues = false)
     {
-        array = new int[size];
-        if (!user_values)
+        _array = new int[size];
+        if (!userValues)
         {
-            Random_array();
+            RandomArray();
         }
         else
         {
-            Input_array();
+            InputArray();
         }
     }
 
     public void Print()
+    {
+        Print(_array);
+    }
+
+    private static void Print(int[] array)
     {
         for (int h = 0; h < array.Length; h++)
         {
@@ -38,32 +43,23 @@ class One_Dimension
         Console.WriteLine();
     }
 
-    private static void Print(int[] ChangedArray)
+    public void RandomArray()
     {
-        for (int h = 0; h < ChangedArray.Length; h++)
+        for (int i = 0; i < _array.Length; i++)
         {
-            Console.Write($"{ChangedArray[h]} ");
-        }
-        Console.WriteLine();
-    }
-
-    public void Random_array()
-    {
-        for (int i = 0; i < array.Length; i++)
-        {
-            array[i] = random.Next(0, 100);
+            _array[i] = _random.Next(0, 100);
         }
     }
 
 
-    public void Input_array()
+    public void InputArray()
     {
         Console.WriteLine("Enter a string with all values of an array separated by spaces");
         string input = Console.ReadLine();
-        string[] input_lst = input.Split();
-        for (int i = 0; i < array.Length; i++)
+        string[] inputLst = input.Split();
+        for (int i = 0; i < _array.Length; i++)
         {
-            array[i] = int.Parse(input_lst[i]);
+            _array[i] = int.Parse(inputLst[i]);
         }
     }
 
@@ -71,31 +67,31 @@ class One_Dimension
     public void Average()
     {
         int summ = 0;
-        foreach (int number in array)
+        foreach (int number in _array)
         {
             summ += number;
         }
-        decimal avg = summ / array.Length;
+        decimal avg = summ / _array.Length;
         Console.WriteLine($"Average = {avg}");
     }
 
-    public void Delete_Over()
+    public void DeleteOver()
     {
-        int newArrayLength = array.Length;
-        for (int x = 0; x < array.Length; x++)
+        int newArrayLength = _array.Length;
+        for (int x = 0; x < _array.Length; x++)
         {
-            if (Math.Abs(array[x]) > 100)
+            if (Math.Abs(_array[x]) > 100)
             {
                 newArrayLength--;
             }
         }
         int[] array2 = new int[newArrayLength];
         int counter = 0;
-        for (int x = 0 ; x < array.Length ; x++)
+        for (int x = 0 ; x < _array.Length ; x++)
         {
-            if (!(Math.Abs(array[x]) > 100))
+            if (!(Math.Abs(_array[x]) > 100))
             {
-                array2[counter] = array[x];
+                array2[counter] = _array[x];
                 counter++;
             }
         }
@@ -105,37 +101,37 @@ class One_Dimension
 
     public void Unique()
     {
-        int newarrayLength = array.Length;
-        for (int i = 0; i < array.Length; i++)
+        int newArrayLength = _array.Length;
+        for (int i = 0; i < _array.Length; i++)
         {
-            for (int j = i; j < array.Length; j++)
+            for (int j = i; j < _array.Length; j++)
             {
 
-                if (array[i] == array[j] && i != j)
+                if (_array[i] == _array[j] && i != j)
                 {
-                    newarrayLength--;
+                    newArrayLength--;
                     break;
                 }
             }
         }
         int counter = 0;
-        int[] newarray = new int[newarrayLength];
-        for (int a = 0; a < array.Length; a++)
+        int[] newArray = new int[newArrayLength];
+        for (int a = 0; a < _array.Length; a++)
         {
-            if (!Contain(newarray, array[a]))
+            if (!Contain(newArray, _array[a]))
             {
-                newarray[counter] = array[a];
+                newArray[counter] = _array[a];
                 counter++;
             }
         }
-        Print(newarray);
+        Print(newArray);
     }
 
-    public bool Contain(int[] k, int symb)
+    public bool Contain(int[] array, int symb)
     {
-        for (int g = 0; g < k.Length; g++)
+        for (int g = 0; g < array.Length; g++)
         {
-            if (symb == k[g])
+            if (symb == array[g])
             {
                 return true;
             }

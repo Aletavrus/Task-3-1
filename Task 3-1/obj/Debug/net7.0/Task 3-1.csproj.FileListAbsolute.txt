@@ -1,0 +1,15 @@
+/workspaces/Task-3-1/Task 3-1/bin/Debug/net7.0/Task 3-1
+/workspaces/Task-3-1/Task 3-1/bin/Debug/net7.0/Task 3-1.deps.json
+/workspaces/Task-3-1/Task 3-1/bin/Debug/net7.0/Task 3-1.runtimeconfig.json
+/workspaces/Task-3-1/Task 3-1/bin/Debug/net7.0/Task 3-1.dll
+/workspaces/Task-3-1/Task 3-1/bin/Debug/net7.0/Task 3-1.pdb
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.csproj.AssemblyReference.cache
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.AssemblyInfoInputs.cache
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.AssemblyInfo.cs
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.csproj.CoreCompileInputs.cache
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.dll
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/refint/Task 3-1.dll
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.pdb
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/Task 3-1.genruntimeconfig.cache
+/workspaces/Task-3-1/Task 3-1/obj/Debug/net7.0/ref/Task 3-1.dll
