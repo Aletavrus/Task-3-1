@@ -33,8 +33,7 @@ class HelloWorld
             TwoDimension twoDimension = new TwoDimension(lines, columns, userValues);
             twoDimension.Average();
             twoDimension.Print();
-            twoDimension.PrintEvenLines();
-            //Console.WriteLine($"Matrix Determiner = {twoDimension.Split_array(twoDimension.GetArray)}");
+            Console.WriteLine($"Matrix Determiner = {twoDimension.Split_array()}");
         }
         if (typeArray == "many dimensions")
         {

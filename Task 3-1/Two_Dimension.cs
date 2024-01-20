@@ -83,41 +83,52 @@ class TwoDimension
             Console.WriteLine();
         }
         Console.WriteLine();
+        Console.WriteLine("And an array with reversed even lines");
+        PrintEvenLines();
     }
 
-    public void PrintEvenLines() //элементы четных строк в обратном порядке
+    private void PrintEvenLines() //элементы четных строк в обратном порядке
     {
         for (int i = 0; i < _array.GetLength(0); i++)
         {
-            if (i % 2 == 0)
+            string line = "";
+            for (int j = 0; j < _array.GetLength(1); j++)
             {
-                for (int j = _array.GetLength(1) - 1; j >= 0; j--)
+                if (j!=_array.GetLength(1)-1)
                 {
-                    Console.Write($"{_array[i, j]} ");
+                    line += _array[i, j].ToString() + " ";
                 }
-                Console.WriteLine();
+                else
+                {
+                    line += _array[i, j].ToString();
+                }
             }
-            else
+            if (i%2 == 0)
             {
-                for (int j = 0; j < _array.GetLength(1); j++)
-                {
-                    Console.Write($"{_array[i, j]} ");
-                }
-                Console.WriteLine();
+                line = Reverse(line);
             }
+            Console.WriteLine(line);
         }
+        Console.WriteLine();
     }
 
-    public int[,] GetArray
+    private string Reverse(string s)
     {
-        get
+        string reversed = "";
+        for (int k= s.Length-1; k>=0; k--)
         {
-            return _array;
+            reversed += s[k];
         }
+        return reversed;
     }
 
-    public int Split_array(int[,] array) //здесь и дальше алгоритм поиска определителя матрицы
+    public int Split_array(int[,] array = null) //здесь и дальше алгоритм поиска определителя матрицы
     {
+        if (array == null)
+        {
+            array = new int[_array.GetLength(0), _array.GetLength(1)];
+            Array.Copy(_array, array, _array.Length);
+        }
         int total = 0;
         int counter = 0;
         int sizeOfArray = array.GetLength(0);
