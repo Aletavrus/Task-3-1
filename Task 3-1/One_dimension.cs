@@ -12,11 +12,11 @@ class OneDimension
     {
         if (userValues)
         {
-            _createArray(size, true);
+            CreateArray(size, true);
         }
         else
         {
-            _createArray(size);
+            CreateArray(size);
         }
     }
 
@@ -34,20 +34,20 @@ class OneDimension
         Console.WriteLine();
     }
 
-    private void _createArray(int size, bool userValues = false)
+    private void CreateArray(int size, bool userValues = false)
     {
         _array = new int[size];
         if (!userValues)
         {
-            _randomArray();
+            RandomArray();
         }
         else
         {
-            _inputArray();
+            InputArray();
         }
     }
 
-    private void _randomArray()
+    private void RandomArray()
     {
         for (int i = 0; i < _array.Length; i++)
         {
@@ -56,7 +56,7 @@ class OneDimension
     }
 
 
-    public void _inputArray()
+    public void InputArray()
     {
         Console.WriteLine("Enter a string with all values of an array separated by spaces");
         string input = Console.ReadLine();

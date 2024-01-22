@@ -15,28 +15,28 @@ class TwoDimension
     {
         if (userValues)
         {
-            _createArray(line, column, true);
+            CreateArray(line, column, true);
         }
         else
         {
-            _createArray(line, column);
+            CreateArray(line, column);
         }
     }
 
-    private void _createArray(int line, int column, bool userValues = false)
+    private void CreateArray(int line, int column, bool userValues = false)
     {
         _array = new int[line, column];
         if (!userValues)
         {
-            _randomArray();
+            RandomArray();
         }
         else
         {
-            _inputArray();
+            InputArray();
         }
     }
 
-    private void _inputArray()
+    private void InputArray()
     {
         for (int i = 0; i < _array.GetLength(0); i++)
         {
@@ -50,7 +50,7 @@ class TwoDimension
         }
     }
 
-    private void _randomArray()
+    private void RandomArray()
     {
         for (int i = 0; i < _array.GetLength(0); i++)
         {
