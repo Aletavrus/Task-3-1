@@ -31,9 +31,9 @@ class HelloWorld
             Console.WriteLine("Enter amount of columns of an array");
             int columns = int.Parse(Console.ReadLine());
             TwoDimension twoDimension = new TwoDimension(lines, columns, userValues);
-            twoDimension.Average();
+            //twoDimension.Average();
             twoDimension.Print();
-            Console.WriteLine($"Matrix Determiner = {twoDimension.Split_array()}");
+            Console.WriteLine($"Matrix Determiner = {twoDimension.GetDeterminant()}");
         }
         if (typeArray == "many dimensions")
         {

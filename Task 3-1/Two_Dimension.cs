@@ -48,6 +48,7 @@ class TwoDimension
                 _array[i, j] = int.Parse(input_lst[j]);
             }
         }
+        Console.WriteLine();
     }
 
     private void RandomArray()
@@ -115,20 +116,16 @@ class TwoDimension
     private string Reverse(string s)
     {
         string reversed = "";
-        for (int k= s.Length-1; k>=0; k--)
+        string[] s_split = s.Split(' ');
+        for (int k = s_split.Length -1; k>=0; k--)
         {
-            reversed += s[k];
+            reversed += s_split[k] + " ";
         }
         return reversed;
     }
 
-    public int Split_array(int[,] array = null) //здесь и дальше алгоритм поиска определителя матрицы
+    private int Split_array(int[,] array) //здесь и дальше алгоритм поиска определителя матрицы
     {
-        if (array == null)
-        {
-            array = new int[_array.GetLength(0), _array.GetLength(1)];
-            Array.Copy(_array, array, _array.Length);
-        }
         int total = 0;
         int counter = 0;
         int sizeOfArray = array.GetLength(0);
@@ -213,6 +210,11 @@ class TwoDimension
         int definitor = FindDefinitor(newArray);
         definitor = oldArray[0, n] * k * definitor;
         return definitor;
+    }
+
+    public int GetDeterminant()
+    {
+        return Split_array(_array);
     }
 
 }
