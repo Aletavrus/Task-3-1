@@ -1,5 +1,5 @@
 ﻿
-class OneDimension
+sealed class OneDimension:ArrayBase
 {
     private Random _random = new Random();
     private int[] _array;
@@ -20,7 +20,7 @@ class OneDimension
         }
     }
 
-    public void Print()
+    public override void Print()
     {
         Print(_array);
     }
@@ -34,7 +34,7 @@ class OneDimension
         Console.WriteLine();
     }
 
-    private void CreateArray(int size, bool userValues = false)
+    private override void CreateArray(int size, bool userValues = false)
     {
         _array = new int[size];
         if (!userValues)
@@ -47,7 +47,7 @@ class OneDimension
         }
     }
 
-    private void RandomArray()
+    private override void RandomArray()
     {
         for (int i = 0; i < _array.Length; i++)
         {
@@ -56,7 +56,7 @@ class OneDimension
     }
 
 
-    public void InputArray()
+    public override void InputArray()
     {
         Console.WriteLine("Enter a string with all values of an array separated by spaces");
         string input = Console.ReadLine();
@@ -68,7 +68,7 @@ class OneDimension
     }
 
 
-    public void Average()
+    public override void Average()
     {
         int summ = 0;
         foreach (int number in _array)

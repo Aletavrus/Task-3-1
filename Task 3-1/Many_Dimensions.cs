@@ -1,4 +1,4 @@
-﻿class ManyDimension
+﻿sealed class ManyDimension:ArrayBase
 {
     private Random _random = new Random();
     private int[][] _array;
@@ -19,7 +19,7 @@
         }
     }
 
-    private void CreateArray(int size, bool userValues = false)
+    private override void CreateArray(int size, bool userValues = false)
     {
         _array = new int[size][];
         if (!userValues)
@@ -32,7 +32,7 @@
         }
     }
 
-    private void InputArray()
+    private override void InputArray()
     {
         for (int i = 0; i < _array.Length; i++)
         {
@@ -49,7 +49,7 @@
         }
     }
 
-    private void RandomArray()
+    private override void RandomArray()
     {
         for (int i = 0; i < _array.Length; i++)
         {
@@ -63,10 +63,10 @@
         }
     }
 
-    public void Print()
+    public override void Print()
     {
         Print(_array);
-    }
+    }+
 
     private static void Print(int[][] array)
     {
@@ -81,7 +81,7 @@
         Console.WriteLine();
     }
 
-    public void AverageOfSingle()
+    public override void Average()
     {
         for (int i = 0; i < _array.Length; i++)
         {
