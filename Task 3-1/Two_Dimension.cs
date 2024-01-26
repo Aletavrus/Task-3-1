@@ -2,7 +2,7 @@
 using System.Data;
 using System.Drawing;
 
-class TwoDimension
+sealed class TwoDimension:ArrayBase
 {
     private Random random = new Random();
     private int[,] _array;
@@ -23,7 +23,7 @@ class TwoDimension
         }
     }
 
-    private void CreateArray(int line, int column, bool userValues = false)
+    private override void CreateArray(int line, int column, bool userValues = false)
     {
         _array = new int[line, column];
         if (!userValues)
@@ -36,7 +36,7 @@ class TwoDimension
         }
     }
 
-    private void InputArray()
+    private override void InputArray()
     {
         for (int i = 0; i < _array.GetLength(0); i++)
         {
@@ -51,7 +51,7 @@ class TwoDimension
         Console.WriteLine();
     }
 
-    private void RandomArray()
+    private override void RandomArray()
     {
         for (int i = 0; i < _array.GetLength(0); i++)
         {
@@ -62,7 +62,7 @@ class TwoDimension
         }
     }
 
-    public void Average()
+    public override void Average()
     {
         int summ = 0;
         foreach (int number in _array)
@@ -73,7 +73,7 @@ class TwoDimension
         Console.WriteLine($"Average = {avg}");
     }
 
-    public void Print()
+    public override void Print()
     {
         for (int i = 0; i<_array.GetLength(0); i++)
         {
